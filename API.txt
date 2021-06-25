@@ -1,0 +1,9 @@
+Instalar pacote Swashbuckle.aspnetcore pelo nuget do projeto
+Alterar as propriedades do projeto
+- Compilar - Ativar a opcao "Arquivo de documentacao XML"
+- Depurar - Alterar o "Iniciar navegador" para "swagger"
+
+Startup.cs
+- ConfigureServices - services.AddSwaggerGen(c => { c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "CursoAPI", Version = "v1" }); });
+- Configure - app.UseSwagger();
+              app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "CursoAPI"); });

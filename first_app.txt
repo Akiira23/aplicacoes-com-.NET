@@ -1,0 +1,29 @@
+Install packages 
+- Install-Package Microsoft.EntityFrameworkCore.SqlServer
+- Install-Package Microsoft.EntityFrameworkCore.Tools
+
+Criar uma model com os atributos da tabela e um context
+( dentro do context
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=Cursomvc;Integrated Security=True");
+        }
+) para a execucao da criacao do bd (Models).
+Adicionar services.AddDbContext<Context>(); no ConfigureServices
+
+Execute Migration to create the table on DB
+- Add-Migration InitialCreate -> "InitialCreate" o nome da acao que esta sendo realizada
+- Update-Database
+
+Criar um Novo item com Scaffolding (Controllers)
+- Controlador MVC com exibicoes, usando o Entity Framework
+- Modelo (model criado)
+- Contexto (context criado)
+
+Adicionar no layout o link para a nova pagina criada
+
+Para visualizar o bd 
+- Gerenciador de Servidores
+- adicionar novo bd
+- nome do servidor = (localdb)\mssqllocaldb
+- Selecionar ou digitar ... escolher o banco utilizado
